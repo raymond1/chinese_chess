@@ -1,0 +1,26 @@
+html{
+    background: #ffffff;
+}
+
+h1{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+article{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.canvasBorder{
+	display: block;
+    border: 1px black solid;
+	background: #00ff00;
+	padding: 0;
+}
+
+canvas{
+	margin:0;
+	/*border: thick red solid;*/
+	background: #ff0000;
+}

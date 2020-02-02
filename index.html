@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Chinese Chess</title>
+<meta name=desciption content="Chinese chess game">
+<meta name=author content="Robodden the arm">
+<meta name=content-language content=en>
+
+
+<script type=text/javascript src=Vector.js></script>
+<script type=text/javascript src=Game.js></script>
+<script type=text/javascript src=Coordinate.js></script>
+<script type=text/javascript src=FocusManager.js></script>
+<script type=text/javascript src=Piece.js></script>
+<script type=text/javascript src=handlersAndGlobals.js></script>
+<script type=text/javascript src=Line.js></script>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel=stylesheet type=text/css href=chinese_chess.css>
+</head>
+<body>
+<article>
+<h1>Chinese Chess</h1>
+
+<div class="canvasBorder">
+
+</div>
+</article>
+
+</body>
+<head>
+<script type=text/javascript>
+var boardSetupObject = {
+	"board":{"filename":"chinese_chess_3.png"},
+	"pieces": [
+		{
+			"name": "chariot_red",
+			"filename": "chariot_red_2.png",
+			"position": {"x":5, "y":590},
+		},
+		{
+			"name": "horse_red",
+			"filename": "horse_red.png",
+			"position": {"x": 70, "y": 590}
+		},
+		{
+			"name": "elephant_red",
+			"filename": "elephant_red.png",
+			"position": {"x": 135, "y": 590}
+		},
+		{
+			"name": "guard_red",
+			"filename": "guard_red.png",
+			"position": {"x": 200, "y": 590}
+		},
+		{
+			"name": "general_red",
+			"filename": "general_red.png",
+			"position": {"x": 265, "y": 590}
+		},
+		{
+			"name": "guard_red",
+			"filename": "guard_red.png",
+			"position": {"x": 330, "y": 590}
+		},
+		{
+			"name": "elephant_red",
+			"filename": "elephant_red.png",
+			"position": {"x": 395, "y": 590}
+		},
+		{
+			"name": "horse_red",
+			"filename": "horse_red.png",
+			"position": {"x": 460, "y": 590}
+		},
+		{
+			"name": "chariot_red",
+			"filename": "chariot_red_2.png",
+			"position": {"x":525, "y": 590}
+		},
+		{
+			"name": "cannon_red",
+			"filename": "cannon_red_2.png",
+			"position": {"x": 70, "y": 460}
+		},
+		{
+			"name": "cannon_red",
+			"filename": "cannon_red_2.png",
+			"position": {"x": 460, "y": 460}
+		},
+		{
+			"name": "bing_red",
+			"filename": "bing_red.png",
+			"position": {"x": 5, "y": 390}
+		},
+		{
+			"name": "bing_red",
+			"filename": "bing_red.png",
+			"position": {"x": 135, "y": 390}
+		},
+		{
+			"name": "bing_red",
+			"filename": "bing_red.png",
+			"position": {"x": 265, "y": 390}
+		},
+		{
+			"name": "bing_red",
+			"filename": "bing_red.png",
+			"position": {"x": 395, "y": 390}
+		},
+		{
+			"name": "bing_red",
+			"filename": "bing_red.png",
+			"position": {"x": 525, "y": 390}
+		},
+		{
+			"name": "chariot_green",
+			"filename": "chariot_green_2.png",
+			"position": {"x": 5, "y": 5},
+			"baseAngle": 180
+		},
+		{
+			"name": "horse_green",
+			"filename": "horse_green.png",
+			"position": {"x": 70, "y": 5},
+			"baseAngle": 180
+		},
+		{
+			"name": "minister_green",
+			"filename": "minister_green.png",
+			"position": {"x": 135, "y": 5},
+			"baseAngle": 180
+		},
+		{
+			"name": "guard_green",
+			"filename": "guard_green.png",
+			"position": {"x": 200, "y": 5},
+			"baseAngle": 180
+		},
+		{
+			"name": "general_green",
+			"filename": "general_green.png",
+			"position": {"x": 265, "y": 5},
+			"baseAngle": 180
+		},
+		{
+			"name": "guard_green",
+			"filename": "guard_green_2.png",
+			"position": {"x": 330, "y": 5},
+			"baseAngle": 180
+		},
+		{
+			"name": "minister_green",
+			"filename": "minister_green.png",
+			"position": {"x": 395, "y": 5},
+			"baseAngle": 180
+		},
+		{
+			"name": "horse_green",
+			"filename": "horse_green_2.png",
+			"position": {"x": 460, "y": 5},
+			"baseAngle": 180
+		},
+		{
+			"name": "chariot_green",
+			"filename": "chariot_green.png",
+			"position": {"x": 525, "y": 5},
+			"baseAngle": 180
+		},
+		{
+			"name": "cannon_green",
+			"filename": "cannon_green.png",
+			"position": {"x": 70, "y": 130},
+			"baseAngle": 180
+		},
+		{
+			"name": "cannon_green",
+			"filename": "cannon_green.png",
+			"position": {"x": 460, "y": 130},
+			"baseAngle": 180
+		},
+		{
+			"name": "jut_green",
+			"filename": "jut_green_5.png",
+			"position": {"x": 5, "y": 195},
+			"baseAngle": 180
+		},
+		{
+			"name": "jut_green",
+			"filename": "jut_green_5.png",
+			"position": {"x": 135, "y": 195},
+			"baseAngle": 180
+		},
+		{
+			"name": "jut_green",
+			"filename": "jut_green_5.png",
+			"position": {"x": 265, "y": 195},
+			"baseAngle": 180
+		},
+		{
+			"name": "jut_green",
+			"filename": "jut_green_5.png",
+			"position": {"x": 395, "y": 195},
+			"baseAngle": 180
+		},
+		{
+			"name": "jut_green",
+			"filename": "jut_green_5.png",
+			"position": {"x": 525, "y": 195},
+			"baseAngle": 180
+		}
+	]
+};
+
+var game = new Game;
+game.setupGame(document.getElementsByClassName('canvasBorder')[0], boardSetupObject);
+</script>
+</head>
+</html>
